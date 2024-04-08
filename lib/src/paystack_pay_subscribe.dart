@@ -147,12 +147,20 @@ class _PaystackPaySubscribeState extends State<PaystackPaySubscribe> {
     }
   }
 
+  late Future<PaystackRequestResponse> _paymentRequestFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _paymentRequestFuture = _makePaymentRequest();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: FutureBuilder<PaystackRequestResponse>(
-          future: _makePaymentRequest(),
+          future: _paymentRequestFuture,
           builder: (context, AsyncSnapshot<PaystackRequestResponse> snapshot) {
             /// Show screen if snapshot has data and status is true.
             if (snapshot.hasData && snapshot.data!.status == true) {
