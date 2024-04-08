@@ -14,7 +14,7 @@ class PaystackPayNow extends StatefulWidget {
 
   /// Reference could be alpha numeric and or numeric sequencial character,
   /// could be a way to check trasancation from the backend.
-  final String reference;
+  //final String reference;
 
   /// Callback URL from Paystack
   final String callbackUrl;
@@ -52,7 +52,7 @@ class PaystackPayNow extends StatefulWidget {
       {Key? key,
       required this.secretKey,
       required this.email,
-      required this.reference,
+      //required this.reference,
       required this.currency,
       required this.amount,
       required this.callbackUrl,
@@ -85,7 +85,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
         body: jsonEncode({
           "email": widget.email,
           "amount": widget.amount,
-          "reference": widget.reference,
+          //"reference": widget.reference,
           "currency": widget.currency,
           "metadata": widget.metadata,
           "channels": widget.paymentChannel

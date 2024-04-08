@@ -14,7 +14,7 @@ class PaystackPaySubscribe extends StatefulWidget {
 
   /// Reference could be alpha numeric and or numeric sequencial character,
   /// could be a way to check trasancation from the backend.
-  final String reference;
+  //final String reference;
 
   /// Plan id referenced in your paystack backend,
   final String plan;
@@ -55,7 +55,7 @@ class PaystackPaySubscribe extends StatefulWidget {
       {Key? key,
       required this.secretKey,
       required this.email,
-      required this.reference,
+      //required this.reference,
       required this.plan,
       required this.currency,
       required this.amount,
@@ -90,7 +90,7 @@ class _PaystackPaySubscribeState extends State<PaystackPaySubscribe> {
           "email": widget.email,
           "amount": widget.amount,
           "plan": widget.plan,
-          "reference": widget.reference,
+          //"reference": widget.reference,
           "currency": widget.currency,
           "metadata": widget.metadata,
           'callback_url': widget.callbackUrl,
