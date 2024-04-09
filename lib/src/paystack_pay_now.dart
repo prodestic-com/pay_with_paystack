@@ -141,11 +141,13 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
     }
   }
 
+  late final WebViewController webViewController;
   late Future<PaystackRequestResponse> _paymentRequestFuture;
 
   @override
   void initState() {
     super.initState();
+    webViewController = WebViewController();
     _paymentRequestFuture = _makePaymentRequest();
   }
 
@@ -158,7 +160,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
           builder: (context, AsyncSnapshot<PaystackRequestResponse> snapshot) {
             /// Show screen if snapshot has data and status is true.
             if (snapshot.hasData && snapshot.data!.status == true) {
-              final controller = WebViewController()
+              webViewController
                 ..setJavaScriptMode(JavaScriptMode.unrestricted)
                 ..setUserAgent("Flutter;Webview")
                 ..setNavigationDelegate(
@@ -220,7 +222,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                 )
                 ..loadRequest(Uri.parse(snapshot.data!.authUrl));
               return WebViewWidget(
-                controller: controller,
+                controller: webViewController,
               );
             }
 
