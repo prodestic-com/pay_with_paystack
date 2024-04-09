@@ -226,7 +226,9 @@ class _PaystackPaySubscribeState extends State<PaystackPaySubscribe> {
     return Scaffold(
       body: SafeArea(
         child: loading
-            ? const CircularProgressIndicator()
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
             : WebViewWidget(
                 controller: webViewController,
               ),
